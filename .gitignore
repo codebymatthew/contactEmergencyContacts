@@ -1,2 +1,5 @@
 node_modules
 twilio.env
+.env
+crudAppHelpHTMLFile.html
+crudAppHelpServerFile.js
