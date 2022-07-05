@@ -20,6 +20,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     console.log('Connected to Database')
     const db = client.db('emergency-messaging-system')
     const numbersCollection = db.collection('numbers')
+
+    
     app.post('/submit-form', (req, res) => {
       console.log(req.body.smsMessage)
       numbersCollection.insertOne(req.body)
