@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+main section {
+    width: 33%;
+    margin: 0 auto;
+}
+
+#messageForm {
+    display: flex;
+    flex-direction: column;
+}
+#submitMessage {
+    margin: 0 auto;
+    width: 20rem;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- FONT ICONS -->
+    <script src="https://kit.fontawesome.com/db349aca81.js" crossorigin="anonymous"></script>
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+
+    <main>
+        <!-- Message Form -->
+        <section class="messageInput">
+            <form method='POST' action='/message-form' id="messageForm">
+                <!-- <input type="text" class="emergencyMessage" name="emergencyMessage" placeholder="Enter Message" id="messageInputField"> -->
+                <textarea name="emergencyMessage" id="" class="emergencyMessage" cols="20" rows="10"></textarea>
+        
+                <input type="submit" id="submitMessage" value="Save Message">
+              </form>  
+        </section>
+    
+        <section class="contactInput">
+            <form method='POST' action='/submit-form'>
+                <input type="text" class="inputedNumber" name="contactName" placeholder="Enter Contact Name">
+                <input type="text" id="messageBody" name="phoneNumber" placeholder="Enter Contact Phone Number">
+                <!-- NOICE -->
+                <input type="submit" id="submit" value="submit">
+              </form>  
+        </section>
+    
+        <section class="savedInfo">
+            <section class="contactSection">
+                <h2>Contacts</h2>
+                <ul class="contacts">
+                  <% for (let i = 0; i < contacts.length; i++) {%>
+                      <li class="contact" id="<%=contacts[i]._id%>">
+
+                          <input type="checkbox" name="" id="" value="<%= contacts[i].contactName  %>"> <%= contacts[i].contactName  %> <%= contacts[i].phoneNumber.slice(2) %> <i class="fa-solid fa-trash"></i>
+                      </li>
+                      <% } %>
+                </ul>
+    
+            </section>
+
+            <section class="messageSection">
+                <h2>Messages</h2>
+                    <% for (let i = 0; i < messages.length; i++) {%>
+                        <input type="radio" name="message" value="<%= messages[i].emergencyMessage%>"><%= messages[i].emergencyMessage %>  
+                    <% } %>  
+            </section>
+    
+        </section>
+        <section class="sendMessage">
+            <form action="/send-message" method="POST">
+                <input type="submit" value="Send Message">
+            </form>
+        </section>
+    </main>
+
+<script src="./js/sss.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
